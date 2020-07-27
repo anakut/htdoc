@@ -449,7 +449,7 @@
                                 </ul>
                             </li>
 
-                            <li class="mm_quotes hide">
+                            <li class="mm_quotes ">
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-heart-o"></i>
                                     <span class="text"> <?= lang('quotes'); ?> </span>
@@ -621,7 +621,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="mm_notifications  hide" >
+                            <li class="mm_notifications  " >
                                 <a class="submenu" href="<?= admin_url('notifications'); ?>">
                                     <i class="fa fa-info-circle"></i><span class="text"> <?= lang('notifications'); ?></span>
                                 </a>
