@@ -776,7 +776,7 @@
                                        <i class="fa fa-barcode"></i><span><?= lang('Product_Report');?></span>
                                    </a>
                                </li>
-                               <li id="stock_report"  class="hide">
+                               <li id="stock_report"  class="">
                                    <a href="<?php echo base_url('admin/reports/mycurrentstock_report');?>">
                                        <i class="fa fa-barcode"></i><span><?= lang('Stock_Report');?></span>
                                    </a>
