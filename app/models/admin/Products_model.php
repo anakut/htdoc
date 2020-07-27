@@ -409,7 +409,7 @@ class Products_model extends CI_Model
                         }
                     }
 
-                    $warehouse_product= array('product_id' => $product_id,'warehouse_id' =>$product['cf2'] );
+                    $warehouse_product= array('product_id' => $product_id,'warehouse_id' =>$product['warehouse'] );
                     $this->db->insert('warehouses_products', $warehouse_product);
                     $item = array(
                         'product_id' => $product_id,
@@ -432,7 +432,7 @@ class Products_model extends CI_Model
                         'status' => 'received',
                     );
                     $this->db->insert('purchase_items', $item);
-                    $this->site->syncProductQty($product_id, $product['cf2']);  
+                    $this->site->syncProductQty($product_id, $product['warehouse']);  
                    /* $warehouses = $this->site->getAllWarehouses();
                     foreach ($warehouses as $warehouse)
                     {
