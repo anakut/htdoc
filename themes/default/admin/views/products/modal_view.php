@@ -55,10 +55,10 @@
                                     <td><?= $product->name; ?></td>
                                 </tr>
    <!--  add label to click to view  -->                             
-                                <tr>
+                                <!--tr>
                                     <td><?= lang("test"); ?></td>
                                     <td><?= $product->test; ?></td>
-                                </tr>
+                                </tr-->
                                 <tr>
                                     <td><?= lang("code"); ?></td>
                                     <td><?= $product->code; ?></td>
