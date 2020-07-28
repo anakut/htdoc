@@ -697,7 +697,7 @@
                                         </li>
                                         <li id="system_settings_location" class="">
                                             <a href="<?= admin_url('system_settings/location') ?>">
-                                                <i class="fa fa-th-list"></i><span class="text"> <?= lang('add_location'); ?></span>
+                                                <i class="fa fa-th-list"></i><span class="text"> <?= lang('location'); ?></span>
                                             </a>
                                         </li>
                                         <li id="system_settings_variants"  class="hide">
