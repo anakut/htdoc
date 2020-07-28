@@ -410,7 +410,7 @@
                                         </a>
                                     </li>
                                     <?php } ?>
-                                    <li id="sales_add" class="hide">
+                                    <li id="sales_add" class="">
                                         <a class="submenu" href="<?= admin_url('sales/add'); ?>">
                                             <i class="fa fa-plus-circle"></i>
                                             <span class="text"> <?= lang('add_sale'); ?></span>
@@ -434,13 +434,13 @@
                                             <span class="text"> <?= lang('list_gift_cards'); ?></span>
                                         </a>
                                     </li>
-                                    <li id="add_payment" class="hide">
+                                    <li id="add_payment" class="">
                                         <a class="submenu" href="<?= admin_url('sales/sale_payment'); ?>">
                                             <i class=" fa fa-plus-circle"></i>
                                             <span class="text"> <?= lang('Add payments'); ?></span>
                                         </a>
                                     </li>
-                                    <li id="get_payment" class="hide">
+                                    <li id="get_payment" class="">
                                         <a class="submenu" href="<?= admin_url('sales/list_sale_payment'); ?>">
                                             <i class="fa fa-plus-circle"></i>
                                             <span class="text"> <?= lang('Get Payments'); ?></span>
