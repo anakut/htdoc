@@ -37,19 +37,19 @@
                 return nRow;
             },
             "aoColumns": [
-                {"bSortable": false, "mRender": checkbox}, {"bSortable": false,"mRender": img_hl}, null,null, null, null, null, null, <?php if($Owner || $Admin) { echo '{"mRender": currencyFormat}, {"mRender": currencyFormat},'; } else { if($this->session->userdata('show_cost')) { echo '{"mRender": currencyFormat},';  } if($this->session->userdata('show_price')) { echo '{"mRender": currencyFormat},';  } } ?> {"mRender": formatQuantity}, null, <?php if(!$warehouse_id || !$Settings->racks) { echo '{"bVisible": false},'; } else { echo '{"bSortable": true},'; } ?> {"mRender": formatQuantity}, {"bSortable": false}
+                {"bSortable": false, "mRender": checkbox}, {"bSortable": false,"mRender": img_hl}, null, null, null, null, null, <?php if($Owner || $Admin) { echo '{"mRender": currencyFormat}, {"mRender": currencyFormat},'; } else { if($this->session->userdata('show_cost')) { echo '{"mRender": currencyFormat},';  } if($this->session->userdata('show_price')) { echo '{"mRender": currencyFormat},';  } } ?> {"mRender": formatQuantity}, null, <?php if(!$warehouse_id || !$Settings->racks) { echo '{"bVisible": false},'; } else { echo '{"bSortable": true},'; } ?> {"mRender": formatQuantity}, {"bSortable": false}
             ]
         }).fnSetFilteringDelay().dtFilter([
             {column_number: 2, filter_default_label: "[<?=lang('code');?>]", filter_type: "text", data: []},
             {column_number: 3, filter_default_label: "[<?=lang('name');?>]", filter_type: "text", data: []},
-            {column_number: 4, filter_default_label: "[<?=lang('test');?>]", filter_type: "text", data: []},
-            {column_number: 5, filter_default_label: "[<?=lang('brand');?>]", filter_type: "text", data: []},
-            {column_number: 6, filter_default_label: "[<?=lang('location');?>]", filter_type: "text", data: []},
-            {column_number: 7, filter_default_label: "[<?=lang('category');?>]", filter_type: "text", data: []},
-            <?php $col = 7;
+            //{column_number: 4, filter_default_label: "[<?=lang('test');?>]", filter_type: "text", data: []},
+            {column_number: 4, filter_default_label: "[<?=lang('brand');?>]", filter_type: "text", data: []},
+            {column_number: 5, filter_default_label: "[<?=lang('location');?>]", filter_type: "text", data: []},
+            {column_number: 6, filter_default_label: "[<?=lang('category');?>]", filter_type: "text", data: []},
+            <?php $col = 6;
             if($Owner || $Admin) {
-                echo '{column_number : 8, filter_default_label: "['.lang('cost').']", filter_type: "text", data: [] },';
-                echo '{column_number : 9, filter_default_label: "['.lang('price').']", filter_type: "text", data: [] },';
+                echo '{column_number : 7, filter_default_label: "['.lang('cost').']", filter_type: "text", data: [] },';
+                echo '{column_number : 8, filter_default_label: "['.lang('price').']", filter_type: "text", data: [] },';
                 $col += 2;
             } else {
                 if($this->session->userdata('show_cost')) { $col++; echo '{column_number : '.$col.', filter_default_label: "['.lang('cost').']", filter_type: "text", data: [] },'; }
@@ -150,7 +150,7 @@
                             <th><?= lang("code") ?></th>
                             <th><?= lang("name") ?></th>
 <!--  -->
-                            <th><?= lang("test") ?></th>
+                            <!--th><?= lang("test") ?></th-->
                             <th><?= lang("brand") ?></th>
                             <th><?= lang("location") ?></th>
                             <th><?= lang("category") ?></th>

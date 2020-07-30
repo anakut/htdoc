@@ -635,3 +635,8 @@ $lang['col5']="col-test5";
 $lang['col6']="col-test6";
 $lang['col7']="col-test7";
 $lang['col8']="col-test8";
+
+
+
+
+$lang['location']="Location";

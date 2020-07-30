@@ -364,6 +364,8 @@ class Products extends MY_Controller
                 'code' => $this->input->post('code'),
                 'barcode_symbology' => $this->input->post('barcode_symbology'),
                 'name' => $this->input->post('name'),
+                //add to product               
+               // 'test' => $this->input->post('test'),
                 'type' => $this->input->post('type'),
                 'brand' => $this->input->post('brand'),
                 'location' => $this->input->post('location'),
@@ -782,6 +784,10 @@ class Products extends MY_Controller
                 'barcode_symbology' => $this->input->post('barcode_symbology'),
                 'name' => $this->input->post('name'),
                 'type' => $this->input->post('type'),
+//<!-- edit  -->
+              //  'test' => $this->input->post('test'),
+
+
                 'brand' => $this->input->post('brand'),
                 'location' => $this->input->post('location'),
                 'category_id' => $this->input->post('category'),

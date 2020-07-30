@@ -90,11 +90,11 @@ if (!empty($variants)) {
                         <?= lang("product_name", "name") ?>
                         <?= form_input('name', (isset($_POST['name']) ? $_POST['name'] : ($product ? $product->name : '')), 'class="form-control gen_slug" id="name" required="required"'); ?>
                     </div>
-
-                    <div class="form-group all">
+    <!-- add field to edit -->
+                    <!--div class="form-group all">
                         <?= lang("test", "test") ?>
                         <?= form_input('test', (isset($_POST['test']) ? $_POST['test'] : ($product ? $product->test : '')), 'class="form-control gen_slug" id="test" required="required"'); ?>
-                    </div>
+                    </div-->
 
                     <div class="form-group all">
                         <?= lang("product_code", "code") ?>

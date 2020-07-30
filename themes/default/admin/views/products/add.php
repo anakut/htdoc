@@ -106,10 +106,10 @@ if (!empty($variants)) {
 
 
                     <!--add to product  -->
-                   <div class="form-group all">
+                   <!--div class="form-group all">
                         <?= lang("test", "test") ?>
                         <?= form_input('test', (isset($_POST['test']) ? $_POST['test'] : ($product ? $product->test : '')), 'class="form-control gen_slug" id="test" "'); ?>
-                    </div>
+                    </div-->
 
 
                     <!-- <div class="form-group all">
