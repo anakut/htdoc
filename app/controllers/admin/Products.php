@@ -150,6 +150,7 @@ class Products extends MY_Controller
             $this->data['rack'] = $wh_pr['rack'];
             $this->data['modal_js'] = $this->site->modal_js();
             $this->load->view($this->theme . 'products/set_rack', $this->data);
+
         }
     }
 
@@ -1090,10 +1091,6 @@ class Products extends MY_Controller
 
     function import_csv()
     {
-                                                                                     
-        $warehouse_qty=null;
-                                                                                    
-        $code = null;
         $this->sma->checkPermissions('csv');
         $this->load->helper('security');
         $this->form_validation->set_rules('userfile', lang("upload_file"), 'xss_clean');
@@ -1135,12 +1132,14 @@ class Products extends MY_Controller
                     $final[] = array_combine($keys, $value);
                 }
                 // $this->sma->print_arrays($final);
-                $rw = 2; $data = array();
+                $rw = 2; $items = array();
                 foreach ($final as $csv_pr) {
                     if ( ! $this->products_model->getProductByCode(trim($csv_pr['code']))) {
                         if ($catd = $this->products_model->getCategoryByCode(trim($csv_pr['category_code']))) {
                             $brand = $this->products_model->getBrandByName(trim($csv_pr['brand']));
                             $location = $this->products_model->getLocationByName(trim($csv_pr['location']));
+                            $warehouse = $this->products_model->getWarehouseByName(trim($csv_pr['cf1']));
+                           
                             $unit = $this->products_model->getUnitByCode(trim($csv_pr['unit']));
                             $base_unit = $unit ? $unit->id : NULL;
                             $sale_unit = $base_unit;
@@ -1162,7 +1161,6 @@ class Products extends MY_Controller
 
                             $tax_details = $this->products_model->getTaxRateByName(trim($csv_pr['tax_rate']));
                             $prsubcat = $this->products_model->getCategoryByCode(trim($csv_pr['subcategory_code']));
-                        
                             $items[] = array (
                                 'code' => trim($csv_pr['code']),
                                 'name' => trim($csv_pr['name']),
@@ -1181,23 +1179,21 @@ class Products extends MY_Controller
                                 'subcategory_id' => ($prsubcat ? $prsubcat->id : NULL),
                                 'variants' => trim($csv_pr['variants']),
                                 'image' => trim($csv_pr['image']),
-                                'warehouse' => trim($csv_pr['cf1']),
+                                'warehouse' => trim($warehouse ? $warehouse->id : NULL),
                                 'quantity' => trim($csv_pr['cf2']),
-                                'cf3' => trim($csv_pr['cf3']),
-                                'cf4' => trim($csv_pr['cf4']),
-                                'cf5' => trim($csv_pr['cf5']),
-                                'cf6' => trim($csv_pr['cf6']),
+                                'cf1' => trim($csv_pr['cf3']),
+                                'cf2' => trim($csv_pr['cf4']),
+                                'cf3' => trim($csv_pr['cf5']),
+                                'cf4' => trim($csv_pr['cf6']),
+                                
+                               
                                 );
-
-                             
-                            
-                            
                         } else {
                             $this->session->set_flashdata('error', lang("check_category_code") . " (" . $csv_pr['category_code'] . "). " . lang("category_code_x_exist") . " " . lang("line_no") . " " . $rw);
                             admin_redirect("products/import_csv");
-                          }
+                        }
                     }
-              
+
                     $rw++;
                 }
             }
@@ -1205,19 +1201,10 @@ class Products extends MY_Controller
             // $this->sma->print_arrays($items);
         }
 
-       
-
-
-
-     //   if ($this->form_validation->run() == true && $prs = $this->products_model-> addProduct($data, $items,$saleUnit, $warehouse_qty, $product_attributes, $photos)) {
-     //       $this->session->set_flashdata('message', sprintf(lang("products_added"), $prs));
-    //        admin_redirect('products');
-      //  } 
-       if ($this->form_validation->run() == true && $prs = $this->products_model->add_products($items)) {
-         $this->session->set_flashdata('message', sprintf(lang("products_added"), $prs));
+        if ($this->form_validation->run() == true && $prs = $this->products_model->add_products($items)) {
+            $this->session->set_flashdata('message', sprintf(lang("products_added"), $prs));
             admin_redirect('products');
-        } 
-        else {
+        } else {
 
             $this->data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
 
@@ -2499,5 +2486,5 @@ class Products extends MY_Controller
         }
 
     }
-    
+
 }

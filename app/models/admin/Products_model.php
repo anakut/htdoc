@@ -169,7 +169,7 @@ class Products_model extends CI_Model
     {
         $this->db->select('' . $this->db->dbprefix('warehouses') . '.*, ' . $this->db->dbprefix('warehouses_products') . '.quantity, ' . $this->db->dbprefix('warehouses_products') . '.rack')
             ->join('warehouses_products', 'warehouses_products.warehouse_id=warehouses.id', 'left')
-            ->where('warehouses_products.product_id', '$product_id')
+            ->where('warehouses_products.product_id', $product_id)
             ->group_by('warehouses.id');
         $q = $this->db->get('warehouses');
         if ($q->num_rows() > 0) {
@@ -203,7 +203,7 @@ class Products_model extends CI_Model
 
     public function addProduct($data, $items, $saleUnit, $warehouse_qty, $product_attributes, $photos)
     {
-            if ($this->db->insert('products', $data)) {
+        if ($this->db->insert('products', $data)) {
             $product_id = $this->db->insert_id();
 
             if ($items) {
@@ -264,8 +264,6 @@ class Products_model extends CI_Model
                                 'product_id' => $product_id,
                                 'product_code' => $data['code'],
                                 'product_name' => $data['name'],
-//add to product                                
-                                'test' => $data['test'],
                                 'net_unit_cost' => $net_item_cost,
                                 'unit_cost' => $unit_cost,
                                 'real_unit_cost' => $unit_cost,
@@ -332,8 +330,6 @@ class Products_model extends CI_Model
                             'product_id' => $product_id,
                             'product_code' => $data['code'],
                             'product_name' => $data['name'],
-//add to product                              
-                            'test' => $data['test'],
                             'net_unit_cost' => $net_item_cost,
                             'unit_cost' => $unit_cost,
                             'quantity' => $pr_attr['quantity'],
@@ -399,132 +395,47 @@ class Products_model extends CI_Model
             foreach ($products as $product) {
                 $variants = explode('|', $product['variants']);
                 unset($product['variants']);
-               
-                if ($this->db->insert('products', $product)) {
+                if ($this->db->insert('products', $product))
+                {
                     $product_id = $this->db->insert_id();
-                    foreach ($variants as $variant) {
+                    foreach ($variants as $variant) 
+                    {
                         if ($variant && trim($variant) != '') {
                             $vat = array('product_id' => $product_id, 'name' => trim($variant));
                             $this->db->insert('product_variants', $vat);
                         }
                     }
-
-                    $warehouse_product= array('product_id' => $product_id,'warehouse_id' =>$product['warehouse'] );
-                    $this->db->insert('warehouses_products', $warehouse_product);
+                    $warehouse = array('product_id' => $product_id, 'warehouse_id' => $product['warehouse']);
+                    $this->db->insert('warehouses_products', $warehouse);
+                    //purchase
+                    
                     $item = array(
                         'product_id' => $product_id,
                         'product_code' => $product['code'],
                         'product_name' => $product['name'],
-                        
-                        'test' => $data['test'],
-                        'net_unit_cost' => $prodcut['cost'],
+                        'net_unit_cost' => $net_item_cost,
                         'unit_cost' => $product['cost'],
-                        'real_unit_cost' => $product['unit'],
+                        'real_unit_cost' => $product['cost'],
                         'quantity' => $product['quantity'],
                         'quantity_balance' => $product['quantity'],
                         'quantity_received' => $product['quantity'],
-                        'item_tax' => $product['tax_rate'],
-                        'tax_rate_id' => $product[''],
+                        'item_tax' => $item_tax,
+                        'tax_rate_id' => $product['tax_rate'],
                         'tax' => $tax,
-                        'subtotal' => $product['cost'],
-                        'warehouse_id' =>$product['cf2'],
+                        'subtotal' => $subtotal,
+                        'warehouse_id' => $product['warehouse'],
                         'date' => date('Y-m-d'),
                         'status' => 'received',
                     );
                     $this->db->insert('purchase_items', $item);
-                    $this->site->syncProductQty($product_id, $product['warehouse']);  
-                   /* $warehouses = $this->site->getAllWarehouses();
-                    foreach ($warehouses as $warehouse)
-                    {
-                       
-                        if($warehouse->name==$product['cf2'])
-                        {
-                            $warehouse_product= array('product_id' => $product_id,'warehouse_id' => $warehouse->id );
-                            $this->db->insert('warehouses_products', $warehouse_product);
-                            $item = array(
-                                'product_id' => $product_id,
-                                'product_code' => $product['code'],
-                                'product_name' => $product['name'],
-                                
-                                'test' => $data['test'],
-                                'net_unit_cost' => $prodcut['cost'],
-                                'unit_cost' => $product['cost'],
-                                'real_unit_cost' => $product['unit'],
-                                'quantity' => $product['quantity'],
-                                'quantity_balance' => $product['quantity'],
-                                'quantity_received' => $product['quantity'],
-                                'item_tax' => $product['tax_rate'],
-                                'tax_rate_id' => $product[''],
-                                'tax' => $tax,
-                                'subtotal' => $prodcut['cost'],
-                                'warehouse_id' =>$warehouse->id,
-                                'date' => date('Y-m-d'),
-                                'status' => 'received',
-                            );
-                            $this->db->insert('purchase_items', $item);
+                    $this->site->syncProductQty($product_id, $product['warehouse']);
 
-                        } 
-                    } 
-                  */
-                    /*     
-                   $item = array(
-                       'product_id' => $product_id,
-                       'product_code' => $product['code'],
-                       'product_name' => $product['name'],
-                       
-                       'test' => $data['test'],
-                       'net_unit_cost' => $prodcut['cost'],
-                       'unit_cost' => $product['cost'],
-                       'real_unit_cost' => $product['unit'],
-                       'quantity' => $product['quantity'],
-                       'quantity_balance' => $product['quantity'],
-                       'quantity_received' => $product['quantity'],
-                       'item_tax' => $product['tax_rate'],
-                       'tax_rate_id' => $product[''],
-                       'tax' => $tax,
-                       'subtotal' => $prodcut['cost'],
-                       'warehouse_id' =>$prodcut['cf2'],
-                       'date' => date('Y-m-d'),
-                       'status' => 'received',
-                   );
-                   $this->db->insert('purchase_items', $item);
-                   $this->site->syncProductQty($product_id, $product['cf2']);  
-                        */                         
-                    
                 }
-                 
-                
             }
             return true;
         }
         return false;
     }
-
-/*
-
-                    $item = array(
-                        'product_id' => $product_id,
-                        'product_code' => $data['code'],
-                        'product_name' => $data['name'],
-                            
-                        'test' => $data['test'],
-                        'net_unit_cost' => $net_item_cost,
-                        'unit_cost' => $unit_cost,
-                        'real_unit_cost' => $unit_cost,
-                        'quantity' => $wh_qty['quantity'],
-                        'quantity_balance' => $wh_qty['quantity'],
-                        'quantity_received' => $wh_qty['quantity'],
-                        'item_tax' => $item_tax,
-                        'tax_rate_id' => $tax_rate_id,
-                        'tax' => $tax,
-                        'subtotal' => $subtotal,
-                        'warehouse_id' => $wh_qty['warehouse_id'],
-                        'date' => date('Y-m-d'),
-                        'status' => 'received',
-                    );
-                    $this->db->insert('purchase_items', $item);
-                    $this->site->syncProductQty($product_id, $wh_qty['warehouse_id']);
-*/
 
     public function getProductNames($term, $limit = 5)
     {
@@ -656,8 +567,6 @@ class Products_model extends CI_Model
                             'product_id' => $id,
                             'product_code' => $data['code'],
                             'product_name' => $data['name'],
-//add to product                              
-                            'test' => $data['test'],
                             'net_unit_cost' => $net_item_cost,
                             'unit_cost' => $unit_cost,
                             'quantity' => $pr_attr['quantity'],
@@ -758,8 +667,7 @@ class Products_model extends CI_Model
 
     public function getAdjustmentItems($adjustment_id)
     {
-//add to product          
-        $this->db->select('adjustment_items.*, products.code as product_code, products.name as product_name, products.image,products.test as test, products.details as details, product_variants.name as variant')
+        $this->db->select('adjustment_items.*, products.code as product_code, products.name as product_name, products.image, products.details as details, product_variants.name as variant')
             ->join('products', 'products.id=adjustment_items.product_id', 'left')
             ->join('product_variants', 'product_variants.id=adjustment_items.option_id', 'left')
             ->group_by('adjustment_items.id')
@@ -1211,7 +1119,14 @@ class Products_model extends CI_Model
         }
         return FALSE;
     }
-
+    public function getWarehouseByName($name)
+    {
+        $q = $this->db->get_where('warehouses', array('name' => $name), 1);
+        if ($q->num_rows() > 0) {
+            return $q->row();
+        }
+        return FALSE;
+    }
     
 
 }
