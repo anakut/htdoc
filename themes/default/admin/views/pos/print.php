@@ -350,7 +350,7 @@
                         <tr>
                             <td colspan="3" rowspan="4">
                                 <!-- <div style="width: 60%;float: left;font-weight: initial;">
-                                ថ្ងៃទី <?//phho date('d',strtotime($inv->date)) ?> ខែ <?//php echo date('m',strtotime($inv->date)) ?> ឆ្នាំ <?//php echo date('Y',strtotime($inv->date)) ?>
+                                ថ្ងៃទី <?phho date('d',strtotime($inv->date)) ?> ខែ <?php echo date('m',strtotime($inv->date)) ?> ឆ្នាំ <?php echo date('Y',strtotime($inv->date)) ?>
                                 </div> -->
                                 <div style="float:right;"><span>Exchange Rate:&nbsp;&nbsp;R</span><?= $inv->exchange_rate?></div>
                             </td>

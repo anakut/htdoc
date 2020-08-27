@@ -373,13 +373,13 @@
                                             <span class="text"> <?= lang('add_adjustment'); ?></span>
                                         </a>
                                     </li>
-                                    <li id="products_stock_counts" class="hide" >
+                                    <li id="products_stock_counts" class="" >
                                         <a class="submenu" href="<?= admin_url('products/stock_counts'); ?>">
                                             <i class="fa fa-list-ol"></i>
                                             <span class="text"> <?= lang('stock_counts'); ?></span>
                                         </a>
                                     </li>
-                                    <li id="products_count_stock" class="hide">
+                                    <li id="products_count_stock" class="">
                                         <a class="submenu" href="<?= admin_url('products/   '); ?>">
                                             <i class="fa fa-plus-circle"></i>
                                             <span class="text"> <?= lang('count_stock'); ?></span>
@@ -490,7 +490,7 @@
                                             <span class="text"> <?= lang('add_purchase'); ?></span>
                                         </a>
                                     </li>
-                                    <li id="purchases_purchase_by_csv" class="hide">
+                                    <li id="purchases_purchase_by_csv" class="">
                                         <a class="submenu" href="<?= admin_url('purchases/purchase_by_csv'); ?>">
                                             <i class="fa fa-plus-circle"></i>
                                             <span class="text"> <?= lang('add_purchase_by_csv'); ?></span>

@@ -58,9 +58,7 @@ if ($modal) {
             }
             table tr td, th{
                 font-size: 9px;
-               
             }
-           
         </style>
 
     </head>
@@ -88,7 +86,7 @@ if ($modal) {
         }
         </style>
         <div class="text-center">
-            <?=!empty($biller->logo) ? '<img  style="width:50%;margin-right:-20px !important;" src="'.base_url('assets/uploads/logos/'.$biller->logo).'" alt="">' : ''; ?>
+            <?=!empty($biller->logo) ? '<img  style="width:70%;margin-right:-20px !important;" src="'.base_url('assets/uploads/logos/'.$biller->logo).'" alt="">' : ''; ?>
 
             <h3 class="hide" style="text-transform:uppercase;font-family:'khmer os muol light';">
                 <?= $biller->company != '-' ? $biller->company : $biller->name; ?></h3>
@@ -132,16 +130,14 @@ if ($modal) {
             //     echo "<span> អត្រាប្ដូរប្រាក់</span>";
             //     echo "<span style='font-size:10px !important;'>&nbsp; : &nbsp;".number_format($rate->rate,0)." ៛</span>";
             // echo "</div>";
-//reciept
+
             echo "<div class='pull-right' style='front-size:9px !important;text-align:left;'>";
-                echo "<span style='font-size:9px !important;'>វិក័យបត្រ</span>";
+                echo "<span style='font-size:9px !important;'>Invoices No</span>";
                 echo "<span style='font-size:9px !important;'>&nbsp; : &nbsp;".$inv->reference_no."<span>"."<br>";
                 echo "<span style='font-size:9px !important;'>អតិថិជន</span>";
                 echo "<span style='font-size:9px !important;'>&nbsp; : &nbsp;&nbsp;".$customer->name."<span>"."<br>";
                 echo "<span>លេខទូរស័ព្វ</span>";
-                echo "<span style='font-size:10px !important;'>&nbsp; : &nbsp;".$customer->phone."</span>"."<br>";
-                echo "<span>អាស័យដ្ធាន</span>";
-                echo "<span style='font-size:10px !important;'>&nbsp; : &nbsp;".$customer->address."</span>";
+                echo "<span style='font-size:10px !important;'>&nbsp; : &nbsp;".$customer->phone."</span>";
             echo "</div>";
             ?>
             <style type="text/css">
@@ -155,11 +151,11 @@ if ($modal) {
             <table class="table table-striped table-condensed" id="tbl-con" style="margin-top: 10px;">
                 <thead style="border-top: 2px;">
                     <tr style="border-top: 1px solid black !important;">
-                        <td colspan="6" style="border-bottom: 1px solid black !important;border-left: 1px solid black !important;text-align: left;font-size: 8px !important;white-space: nowrap;">ទំនិញ / Description</td>
+                        <td colspan="6" style="border-bottom: 1px solid black !important;text-align: left;font-size: 8px !important;white-space: nowrap;">ទំនិញ / Description</td>
                         <!-- <td style="background-color: black !important;">ចុះថ្លៃ</td> -->
                         <td style="width: 100px !important;border-bottom: 1px solid black !important;font-size: 8px !important;text-align: 
                         right;">ចំនួន / Quantity</td>
-                        <td style="width: 100px !important;border-bottom: 1px solid black !important;border-right: 1px solid black !important;font-size: 8px !important;text-align: right;">តម្លៃ / Price</td>
+                        <td style="width: 100px !important;border-bottom: 1px solid black !important;font-size: 8px !important;text-align: right;">តម្លៃ / Price</td>
                         <!-- <td style="background-color: black !important;">សរុប</td> -->
 
                     </tr>
@@ -187,19 +183,17 @@ if ($modal) {
                     echo '<tr>';
                         if ($row->comment !="") {
                            echo '<td colspan="6" style=""float:left;><span style="float:left; font-size:9px;">  '. product_name($row->product_name) .'&nbsp;'.'('.$row->comment.')'.'</span>' . ($row->variant ? ' (' . $row->variant . ')' : '').'</td>';
-                           
                         }else{
-                            echo '<td colspan="6" style="border: 1px solid black !important;"float:left;><span style="float:left; font-size:9px;white-space:nowrap;">  '. product_name($row->product_name).($row->variant ? ' (' . $row->variant .')' : '').'</td>';
-                         
+                            echo '<td colspan="6" style=""float:left;><span style="float:left; font-size:9px;white-space:nowrap;">  '. product_name($row->product_name).($row->variant ? ' (' . $row->variant .')' : '').'</td>';
                         }
                             // if ($row->discount != 2) { 
                             //      echo '<td>' . $row->discount. '</td> ';
                             // }else{
                             //     echo '<td>0%</td>';
                             // }
-                            echo '<td class="text-center" style="white-space:nowrap; font-size:9px; border: 1px solid black !important;">'.
+                            echo '<td class="text-center" style="white-space:nowrap; font-size:9px; ">'.
                             number_format($row->quantity,0).'</td>';
-                            echo '<td style="white-space:nowrap !important; text-align: right;border: 1px solid black !important;"> $  '.number_format($row->real_unit_price + ($row->item_tax / $row->quantity),2).'</td>';
+                            echo '<td style="white-space:nowrap !important; text-align: right;"> $  '.number_format($row->real_unit_price + ($row->item_tax / $row->quantity),2).'</td>';
                             // var_dump($row->subtotal);die();
 
                             // echo '<td align="right" style="white-space:nowrap; font-size:12px;">'.'$ '.number_format($row->subtotal,2).'</td>';
@@ -219,24 +213,21 @@ if ($modal) {
                 <tr style="padding-top: 20px !important;">
                     <!-- <th colspan="4" style="font-size: 11px;"><?= lang("Totalqty"); ?> : </th> -->
                     <!-- <th style="text-align: center;"><?php echo $qty?></th> -->
-                    <th colspan="4"></th>
+                    <th colspan="5"></th>
                     <th></th>
-                    <th></th>
-                    <th class="text-right" colspan="" style="white-space: nowrap !important;border: 1px solid black !important; font-size: 9px;"><?= lang("សរុប / Balance");?>
+                    <th class="text-right" colspan="" style="white-space: nowrap !important; font-size: 9px;margin-top: 20px;"><?= lang("សរុប / Balance");?>
                     </th>
-                    <th colspan="3" class="text-right" style="white-space: nowrap !important;border: 1px solid black !important; font-size: 9px;">$ <?= number_format(($inv->total + $inv->product_tax),2); ?>
-                    </th>
-                </tr>
-                <tr style="padding-top: 20px !important;">
-                    <th colspan="4"></th>
-                    <th></th>
-                    <th></th>
-                    <th class="text-right" colspan="" style="white-space: nowrap !important;border: 1px solid black !important; font-size: 9px;"><?= lang("សរុបរៀល");?>
-                    </th>
-                    <th colspan="3" class="text-right" style="white-space: nowrap !important;border: 1px solid black !important; font-size: 9px;">R <?= number_format((($inv->total+ $rounding)*$rate->rate),0); ?>
+                    <th colspan="3" class="text-right" style="white-space: nowrap !important; font-size: 9px;">$ <?= number_format(($inv->total + $inv->product_tax),2); ?>
                     </th>
                 </tr>
-               
+                <tr style="padding-bottom: 20px !important;">
+                    <!-- <th colspan="4"style="font-size: 11px;">Exch rate : </th>
+                    <th><?php echo $this->sma->formatMoney($rate->rate);?></th> -->
+                    <th colspan="3" rowspan="" headers="" scope=""></th>
+                    <th  colspan="4" class="text-right"style="white-space: nowrap !important;font-size: 9px;"><?= lang("សរុបរៀល"); ?></th>
+                    <th class="text-right" style="white-space: nowrap !important;font-size: 9px;">R <?= number_format((($inv->total+ $rounding)*$rate->rate),0); ?></th>
+                    <!-- $inv->exchange_rate -->
+                </tr>
                 <?php
                 
                 if ($inv->is_pub_tax != 0) {
@@ -270,20 +261,13 @@ if ($modal) {
                     </tr>
 
                 <?php } else { ?>
-
-                    <tr style="padding-top: 20px !important;">
-                    <th colspan="4"></th>
-                    <th></th>
-                    <th></th>
-                    <th class="text-right" colspan="" style="white-space: nowrap !important;border: 1px solid black !important; font-size: 9px;"><?= lang("សរុបចុងក្រោយ / Total");?>
-                    </th>
-                    <th colspan="3" class="text-right" style="white-space: nowrap !important;border: 1px solid black !important; font-size: 9px;">$ <?= $this->sma->formatMoney($inv->grand_total);?>
-                    </th>
-                </tr>
-
-
                    
-                    
+                     <tr  style="border-top: 2px black; border-right:  2px black; border-left:  2px;background-color: #dddd !important;">
+                        <th colspan="7" style="text-align: right;"><?= lang("សរុបចុងក្រោយ / Total"); ?></th>
+                        <th class="text-right" style="font-size:9px">$ <?= $this->sma->formatMoney($inv->grand_total); ?></th>
+               
+                        <!-- <th class="text-right" style="font-size:12px">៛ <?= round($inv->grand_total*$rate->rate,0); ?></th> -->
+                    </tr>
                     <!-- <tr  style="border-bottom:  2px black;border-right:  2px black; border-left:  2px black;">
                         
                         <th colspan=""><?= lang("ប្រាក់ទទួល"); ?></th>

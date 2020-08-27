@@ -6,7 +6,7 @@
     <style type="text/css" media="all">
         body {
             text-align: center;
-            color: #red;
+            color: #000;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 12px;
         }
