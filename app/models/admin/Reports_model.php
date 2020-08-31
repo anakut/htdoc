@@ -148,6 +148,8 @@ class Reports_model extends CI_Model
                 // var_dump($sql);die();
         return $this->db->query($sql)->result();
     }
+   
+
     function get_warehouse()
     {
         return $this->db->query("SELECT * FROM sma_warehouses ")->result();
