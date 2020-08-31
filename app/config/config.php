@@ -17,8 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-//$config['base_url'] = 'http://127.0.0.1/htdocs';
- $config['base_url'] = 'http://192.168.1.153/htdocs';
+$config['base_url'] = 'http://127.0.0.1/htdocs';
+// $config['base_url'] = 'http://192.168.1.153/htdocs';
 //$config['base_url'] = 'http://192.168.1.169';
 
 /*
