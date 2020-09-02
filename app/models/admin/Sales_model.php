@@ -294,9 +294,7 @@ class Sales_model extends CI_Model
             if ($this->site->getReference('so') == $data['reference_no']) {
                 $this->site->updateReference('so');
             }
-            if ($this->site->getReference('so') == $data['test']) {
-                $this->site->updateReference('so');
-            }
+           
             foreach ($items as $item) {
                 
                 $item['sale_id'] = $sale_id;

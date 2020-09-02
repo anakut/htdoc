@@ -98,13 +98,13 @@ class Sales extends MY_Controller
         if ($warehouse_id) {
             $this->datatables
                 ->select("{$this->db->dbprefix('sales')}.id as id, DATE_FORMAT({$this->db->dbprefix('sales')}.date, '%Y-%m-%d %T') as date, reference_no, biller,
-                 {$this->db->dbprefix('sales')}.test ,{$this->db->dbprefix('sales')}.customer, sale_status, grand_total, paid, (grand_total-paid) as balance, payment_status, {$this->db->dbprefix('sales')}.attachment, return_id")
+                 {$this->db->dbprefix('sales')}.customer, sale_status, grand_total, paid, (grand_total-paid) as balance, payment_status, {$this->db->dbprefix('sales')}.attachment, return_id")
                 ->from('sales')
                 ->where('warehouse_id', $warehouse_id);
         } else {
             $this->datatables
                 ->select("{$this->db->dbprefix('sales')}.id as id, DATE_FORMAT({$this->db->dbprefix('sales')}.date, '%Y-%m-%d %T') as date, reference_no, biller,
-                 {$this->db->dbprefix('sales')}.test,{$this->db->dbprefix('sales')}.customer, sale_status, grand_total, paid, (grand_total-paid) as balance, payment_status, {$this->db->dbprefix('sales')}.attachment, return_id")
+                 {$this->db->dbprefix('sales')}.customer, sale_status, grand_total, paid, (grand_total-paid) as balance, payment_status, {$this->db->dbprefix('sales')}.attachment, return_id")
                 ->from('sales');
         }
         if ($this->input->get('shop') == 'yes') {
@@ -618,7 +618,7 @@ class Sales extends MY_Controller
 
                 'customer_id' => $customer_id,
                 'customer' => $customer,
-                'test' => $test,
+              
                 'biller_id' => $biller_id,
                 'biller' => $biller,
                 'warehouse_id' => $warehouse_id,
@@ -803,7 +803,7 @@ class Sales extends MY_Controller
             // $this->data['category']=$this->sales_model->getAllCategories();
             //$this->data['currencies'] = $this->sales_model->getAllCurrencies();
             $this->data['slnumber'] = ''; //$this->site->getReference('so');
-            $this->data['sltests']='';
+           
             $this->data['payment_ref'] = ''; //$this->site->getReference('pay');
             $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => admin_url('sales'), 'page' => lang('sales')), array('link' => '#', 'page' => lang('add_sale')));
             $meta = array('page_title' => lang('add_sale'), 'bc' => $bc);
@@ -990,7 +990,7 @@ class Sales extends MY_Controller
                 'reference_no' => $reference,
                 'customer_id' => $customer_id,
                 'customer' => $customer,
-                'test' => $test,
+               
                 'biller_id' => $biller_id,
                 'biller' => $biller,
                 'warehouse_id' => $warehouse_id,
@@ -1154,7 +1154,7 @@ class Sales extends MY_Controller
         if ($this->form_validation->run() == true) {
 
             $reference = $this->input->post('reference_no') ? $this->input->post('reference_no') : $this->site->getReference('re');
-            $reference = $this->input->post('test') ? $this->input->post('test') : $this->site->getReference('te');
+           
             if ($this->Owner || $this->Admin) {
                 $date = $this->sma->fld(trim($this->input->post('date')));
             } else {
@@ -1305,7 +1305,7 @@ class Sales extends MY_Controller
                 'reference_no' => $sale->reference_no,
                 'customer_id' => $sale->customer_id,
                 'customer' => $sale->customer,
-                'test' => $sale->test,
+           
                 'biller_id' => $sale->biller_id,
                 'biller' => $sale->biller,
                 'warehouse_id' => $sale->warehouse_id,
@@ -2761,7 +2761,7 @@ class Sales extends MY_Controller
                 'reference_no' => $reference,
                 'customer_id' => $customer_id,
                 'customer' => $customer,
-                'test' => $test,
+               
                 'biller_id' => $biller_id,
                 'biller' => $biller,
                 'warehouse_id' => $warehouse_id,
@@ -2841,7 +2841,7 @@ class Sales extends MY_Controller
             $this->data['tax_rates'] = $this->site->getAllTaxRates();
             $this->data['billers'] = $this->site->getAllCompanies('biller');
             $this->data['slnumber'] = $this->site->getReference('so');
-            $this->data['sltests'] = $this->site->getReference('so');
+           
 
             $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => admin_url('sales'), 'page' => lang('sales')), array('link' => '#', 'page' => lang('add_sale_by_csv')));
             $meta = array('page_title' => lang('add_sale_by_csv'), 'bc' => $bc);
