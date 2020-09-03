@@ -20,9 +20,7 @@
                 localStorage.removeItem('slref');
             }
 
-            if (localStorage.getItem('sltests')) {
-                localStorage.removeItem('sltests');
-            }
+          
 
 
             if (localStorage.getItem('slshipping')) {
@@ -137,9 +135,7 @@
             localStorage.setItem('slref', '<?=$slnumber?>');
         }
 
-        if (!localStorage.getItem('sltests')) {
-            localStorage.setItem('sltests', '<?=$slnumber?>');
-        }
+      
 
         if (!localStorage.getItem('sltax2')) {
             localStorage.setItem('sltax2', <?=$Settings->default_tax_rate2;?>);
@@ -286,12 +282,7 @@
                             </div>
                         <?php } ?>
 
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <?= lang("tests", "slref"); ?>
-                                <?php echo form_input('test', (isset($_POST['test']) ? $_POST['test'] : $slnumber), 'class="form-control input-tip" id="slref"'); ?>
-                            </div>
-                        </div>
+                       
                         <div class="col-md-4">
                             <div class="form-group">
                                 <?= lang("reference_no", "slref"); ?>

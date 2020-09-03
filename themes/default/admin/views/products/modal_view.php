@@ -8,7 +8,7 @@
         <button type="button" class="btn btn-xs btn-default no-print pull-right" style="margin-right:15px;" onclick="window.print();">
             <i class="fa fa-print"></i> <?= lang('print'); ?>
         </button>
-        <h4 class="modal-title" id="myModalLabel"><?= $product->name; ?></h4>
+        <h4 class="modal-title" id="myModalLabel"  style="font-family: Khmer OS ;"><?= $product->name; ?></h4>
     </div>
         <div class="modal-body">
 
@@ -35,7 +35,7 @@
                 <div class="col-xs-7">
                     <div class="table-responsive">
                         <table class="table table-borderless table-striped dfTable table-right-left">
-                            <tbody>
+                            <tbody  style="font-family: Khmer OS ;">
                                 <tr>
                                     <td colspan="2" style="background-color:#FFF;"></td>
                                 </tr>

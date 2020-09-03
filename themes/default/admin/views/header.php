@@ -496,13 +496,13 @@
                                             <span class="text"> <?= lang('add_purchase_by_csv'); ?></span>
                                         </a>
                                     </li>
-                                    <li id="purchases_payment" class="hide">
+                                    <li id="purchases_payment" class="">
                                         <a class="submenu" href="<?= admin_url('purchases/clear_payment'); ?>">
                                             <i class="fa fa-plus-circle"></i>
                                             <span class="text"> <?= lang('purchases_payment'); ?></span>
                                         </a>
                                     </li>
-                                    <li id="view_purchases_payment" class="hide">
+                                    <li id="view_purchases_payment" class="">
                                         <a class="submenu" href="<?= admin_url('purchases/print_payment'); ?>">
                                             <i class="fa fa-plus-circle"></i>
                                             <span class="text"> <?= lang('view_purchases_payment'); ?></span>

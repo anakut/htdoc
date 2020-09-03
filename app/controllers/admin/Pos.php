@@ -1875,7 +1875,7 @@ class Pos extends MY_Controller
                     $category_id = "0" . ($category_id / 100) * 100;
                 }
 
-                $prods .= "<button id=\"product-" . $category_id . $count . "\" type=\"button\" value='" . $product->code . "' title=\"" . $product->name . "\" class=\"btn-prni btn-" . $this->pos_settings->product_button_color . " product pos-tip\" data-container=\"body\"><img src=\"" . base_url() . "assets/uploads/thumbs/" . $product->image . "\" alt=\"" . $product->name . "\" class='img-rounded' /><span>" . character_limiter($product->name, 40) . "</span></button>";
+                $prods .= "<button id=\"product-" . $category_id . $count . "\" type=\"button\" value='" . $product->code . "' title=\"" . $product->name . "\" class=\"btn-prni btn-" . $this->pos_settings->product_button_color . " product pos-tip\" data-container=\"body\"><img src=\"" . base_url() . "assets/uploads/thumbs/" . $product->image . "\" alt=\"" . $product->name . "\" class='img-rounded' /><span style='font-family: Khmer OS ;'>" . character_limiter($product->name, 40) . "</span></button>";
 
                 $pro++;
             }
@@ -1902,7 +1902,7 @@ class Pos extends MY_Controller
         $scats = '';
         if ($subcategories) {
             foreach ($subcategories as $category) {
-                $scats .= "<button id=\"subcategory-" . $category->id . "\" type=\"button\" value='" . $category->id . "' class=\"btn-prni subcategory\" ><img src=\"" . base_url() ."assets/uploads/thumbs/" . ($category->image ? $category->image : 'no_image.png') . "\" class='img-rounded img-thumbnail' /><span>" . $category->name . "</span></button>";
+                $scats .= "<button id=\"subcategory-" . $category->id . "\" type=\"button\" value='" . $category->id . "' class=\"btn-prni subcategory\" ><img src=\"" . base_url() ."assets/uploads/thumbs/" . ($category->image ? $category->image : 'no_image.png') . "\" class='img-rounded img-thumbnail'  /><span style='font-family: Khmer OS ;'>" . $category->name . "</span></button>";
             }
         }
 

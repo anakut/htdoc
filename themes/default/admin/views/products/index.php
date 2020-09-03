@@ -174,8 +174,8 @@
                             <th style="min-width:65px; text-align:center;"><?= lang("actions") ?></th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
+                        <tbody style="font-family: Khmer OS ;">
+                        <tr >
                             <td colspan="11" class="dataTables_empty"><?= lang('loading_data_from_server'); ?></td>
                         </tr>
                         </tbody>

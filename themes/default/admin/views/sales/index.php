@@ -23,27 +23,26 @@
                 //if(aData[7] > aData[9]){ nRow.className = "product_link warning"; } else { nRow.className = "product_link"; }
                 return nRow;
             },
-            "aoColumns": [{"bSortable": false,"mRender": checkbox}, {"mRender": fld}, null,null, null, null, {"mRender": row_status}, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": pay_status}, {"bSortable": false,"mRender": attachment}, {"bVisible": false}, {"bSortable": false}],
+            "aoColumns": [{"bSortable": false,"mRender": checkbox}, {"mRender": fld}, null, null, null, {"mRender": row_status}, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": pay_status}, {"bSortable": false,"mRender": attachment}, {"bVisible": false}, {"bSortable": false}],
             "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {
                 var gtotal = 0, paid = 0, balance = 0;
                 for (var i = 0; i < aaData.length; i++) {
-                    gtotal += parseFloat(aaData[aiDisplay[i]][7]);
-                    paid += parseFloat(aaData[aiDisplay[i]][8]);
-                    balance += parseFloat(aaData[aiDisplay[i]][9]);
+                    gtotal += parseFloat(aaData[aiDisplay[i]][6]);
+                    paid += parseFloat(aaData[aiDisplay[i]][7]);
+                    balance += parseFloat(aaData[aiDisplay[i]][8]);
                 }
                 var nCells = nRow.getElementsByTagName('th');
-                nCells[7].innerHTML = currencyFormat(parseFloat(gtotal));
-                nCells[8].innerHTML = currencyFormat(parseFloat(paid));
-                nCells[9].innerHTML = currencyFormat(parseFloat(balance));
+                nCells[6].innerHTML = currencyFormat(parseFloat(gtotal));
+                nCells[7].innerHTML = currencyFormat(parseFloat(paid));
+                nCells[8].innerHTML = currencyFormat(parseFloat(balance));
             }
         }).fnSetFilteringDelay().dtFilter([
             {column_number: 1, filter_default_label: "[<?=lang('date');?> (yyyy-mm-dd)]", filter_type: "text", data: []},
             {column_number: 2, filter_default_label: "[<?=lang('reference_no');?>]", filter_type: "text", data: []},
             {column_number: 3, filter_default_label: "[<?=lang('biller');?>]", filter_type: "text", data: []},
-            {column_number: 4, filter_default_label: "[<?=lang('test');?>]", filter_type: "text", data: []},
-            {column_number: 5, filter_default_label: "[<?=lang('customer');?>]", filter_type: "text", data: []},
-            {column_number: 6, filter_default_label: "[<?=lang('sale_status');?>]", filter_type: "text", data: []},
-            {column_number: 10, filter_default_label: "[<?=lang('payment_status');?>]", filter_type: "text", data: []},
+            {column_number: 4, filter_default_label: "[<?=lang('customer');?>]", filter_type: "text", data: []},
+            {column_number: 5, filter_default_label: "[<?=lang('sale_status');?>]", filter_type: "text", data: []},
+            {column_number: 9, filter_default_label: "[<?=lang('payment_status');?>]", filter_type: "text", data: []},
         ], "footer");
 
         if (localStorage.getItem('remove_slls')) {
@@ -310,7 +309,6 @@
                             <th><?= lang("date"); ?></th>
                             <th><?= lang("reference_no"); ?></th>
                             <th><?= lang("biller"); ?></th>
-                            <th><?= lang("test"); ?></th>
                             <th><?= lang("customer"); ?></th>
                             <th><?= lang("sale_status"); ?></th>
                             <th><?= lang("grand_total"); ?></th>
@@ -332,13 +330,11 @@
                             <th style="min-width:30px; width: 30px; text-align: center;">
                                 <input class="checkbox checkft" type="checkbox" name="check"/>
                             </th>
-                            <th></th><th></th><th></th><th></th><th></th><th></th>
-                           
+                            <th></th><th></th><th></th><th></th><th></th>
                             <th><?= lang("grand_total"); ?></th>
                             <th><?= lang("paid"); ?></th>
-                            <th><?= lang("balance"); ?></th>                                             
+                            <th><?= lang("balance"); ?></th>
                             <th></th>
-                          
                             <th style="min-width:30px; width: 30px; text-align: center;"><i class="fa fa-chain"></i></th>
                             <th></th>
                             <th style="width:80px; text-align:center;"><?= lang("actions"); ?></th>

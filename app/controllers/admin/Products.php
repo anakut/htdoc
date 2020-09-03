@@ -346,7 +346,7 @@ class Products extends MY_Controller
         $warehouses = $this->site->getAllWarehouses();
         $this->form_validation->set_rules('category', lang("category"), 'required|is_natural_no_zero');
         if ($this->input->post('type') == 'standard') {
-            $this->form_validation->set_rules('cost', lang("product_cost"), 'required');
+            $this->form_validation->set_rules('cost', lang("product_cost") );
             $this->form_validation->set_rules('unit', lang("product_unit"), 'required');
         }
         if ($this->input->post('barcode_symbology') == 'ean13') {

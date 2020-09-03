@@ -188,7 +188,7 @@ if (!empty($variants)) {
                     </div>
                     <div class="form-group">
                         <?= lang("product_cost", "cost") ?>
-                        <?= form_input('cost', (isset($_POST['cost']) ? $_POST['cost'] : ($product ? $this->sma->formatDecimal($product->cost) : '')), 'class="form-control tip" id="cost" required="required"') ?>
+                        <?= form_input('cost', (isset($_POST['cost']) ? $_POST['cost'] : ($product ? $this->sma->formatDecimal($product->cost) : '')), 'class="form-control tip" id="cost" "') ?>
                     </div>
                     <div class="form-group all">
                         <?= lang("product_price", "price") ?>
