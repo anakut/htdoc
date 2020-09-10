@@ -84,7 +84,7 @@ class Reports extends MY_Controller
     function getExpiryAlerts($warehouse_id = NULL)
     {
         $this->sma->checkPermissions('expiry_alerts', TRUE);
-        $date = date('Y-m-d', strtotime('+3 months'));
+        $date = date('Y-m-d', strtotime('+1 months'));
 
         if (!$this->Owner && !$warehouse_id) {
             $user = $this->site->getUser();

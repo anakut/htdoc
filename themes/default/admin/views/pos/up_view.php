@@ -27,7 +27,7 @@ if ($modal) {
             #wrapper {
                 max-width: 480px;
                 margin: 0 auto;
-                padding-top: 20px;
+                padding-top: 0px;
             }
 
             .btn {
@@ -158,16 +158,16 @@ if ($modal) {
                 }
             </style>
             <div style="clear:both;"></div>
-            <table class="table table-striped table-condensed" id="tbl-con" style="margin-top: 10px;">
+            <table class="table table-striped table-condensed" id="tbl-con" style="margin-top: 9px;">
                 <thead style="border-top: 2px;">
                     <tr style="border-top: 1px solid black !important;">
-                        <td colspan="5" style="border-bottom: 1px solid black !important;border-left: 1px solid black !important;text-align: left;font-size: 8px !important;white-space: nowrap;font-family: Khmer OS bold ;">ទំនិញ / Description</td>
+                        <td colspan="5" style="border-bottom: 1px solid black !important;border-left: 1px solid black !important;text-align: left;font-size: 9px !important;white-space: nowrap;font-family: Khmer OS bold ;">ទំនិញ / Description</td>
                         <!-- <td style="background-color: black !important;">ចុះថ្លៃ</td> -->
-                        <td style="width: 100px !important;font-size: 8px !important;border-bottom: 1px solid black !important;text-align: 
+                        <td style="width: 100px !important;font-size: 9px !important;border-bottom: 1px solid black !important;text-align: 
                         center;">Discount</td>
-                        <td style="width: 100px !important;border-bottom: 1px solid black !important;font-size: 8px !important;text-align: 
+                        <td style="width: 100px !important;border-bottom: 1px solid black !important;font-size: 9px !important;text-align: 
                         right;font-family: Khmer OS bold ;">ចំនួន / Quantity</td>
-                        <td style="width: 100px !important;border-bottom: 1px solid black !important;border-right: 1px solid black !important;font-size: 8px !important;text-align: right;font-family: Khmer OS bold ;">តម្លៃ / Price</td>
+                        <td style="width: 100px !important;border-bottom: 1px solid black !important;border-right: 1px solid black !important;font-size: 9px !important;text-align: right;font-family: Khmer OS bold ;">តម្លៃ / Price</td>
                         <!-- <td style="background-color: black !important;">សរុប</td> -->
 
                     </tr>

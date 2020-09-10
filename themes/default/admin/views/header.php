@@ -367,7 +367,7 @@
                                             <span class="text"> <?= lang('quantity_adjustments'); ?></span>
                                         </a>
                                     </li>
-                                    <li id="products_add_adjustment" class="hide">
+                                    <li id="products_add_adjustment" class="">
                                         <a class="submenu" href="<?= admin_url('products/add_adjustment'); ?>">
                                             <i class="fa fa-filter"></i>
                                             <span class="text"> <?= lang('add_adjustment'); ?></span>
@@ -380,7 +380,7 @@
                                         </a>
                                     </li>
                                     <li id="products_count_stock" class="">
-                                        <a class="submenu" href="<?= admin_url('products/   '); ?>">
+                                        <a class="submenu" href="<?= admin_url('products/count_stock'); ?>">
                                             <i class="fa fa-plus-circle"></i>
                                             <span class="text"> <?= lang('count_stock'); ?></span>
                                         </a>
@@ -428,7 +428,7 @@
                                             <span class="text"> <?= lang('deliveries'); ?></span>
                                         </a>
                                     </li>
-                                    <li id="sales_gift_cards" class="hide">
+                                    <li id="sales_gift_cards" class="">
                                         <a class="submenu" href="<?= admin_url('sales/gift_cards'); ?>">
                                             <i class="fa fa-gift"></i>
                                             <span class="text"> <?= lang('list_gift_cards'); ?></span>
@@ -781,22 +781,22 @@
                                        <i class="fa fa-barcode"></i><span><?= lang('Stock_Report');?></span>
                                    </a>
                                </li>
-                               <li id="warehouse_chat_stock" class="hide">
+                               <li id="warehouse_chat_stock" class="">
                                    <a href="<?php echo  base_url('admin/reports/warehouse_stock');?>">
                                        <i class="fa fa-circle-o-notch"></i><span><?= lang('warehouse_chat');?></span>
                                    </a>
                                </li>
-                               <li id="profit_loss" class="hide">
+                               <li id="profit_loss" class="">
                                    <a href="<?php echo base_url('admin/reports/profit_loss_report');?>">
                                        <i class="fa fa-money"></i><span><?= lang('profit_and_loss');?></span>
                                    </a>
                                </li>
-                                <li id="account-rec" class="hide">
+                                <li id="account-rec" class="">
                                    <a href="<?php echo base_url('admin/reports/account_receiveable');?>">
                                        <i class="fa fa-money"></i><span><?= lang('account_receiveable');?></span>
                                    </a>
                                </li>
-                                <li id="account_pay" class="hide">
+                                <li id="account_pay" class="">
                                    <a href="<?php echo base_url('admin/reports/account_payable');?>">
                                        <i class="fa fa-money"></i><span><?= lang('account_payable');?></span>
                                    </a>
@@ -806,12 +806,12 @@
                                            <i class="fa fa-money"></i><span><?= lang('Customers_Transaction');?></span>
                                        </a>
                                    </li>
-                                <li id="account_pay" class="hide">
+                                <li id="account_pay" class="">
                                        <a href="<?php echo base_url('admin/reports/profit_report');?>">
                                            <i class="fa fa-money"></i><span><?= lang('Profit Report');?></span>
                                        </a>
                                    </li>
-                                <li id="stock_in_out">
+                                <li id="stock_in_out" class="hide">
                                    <a href="<?php echo base_url('admin/reports/mycurrentstock_report');?>">
                                        <i class="fa fa-barcode"></i><span><?=lang('Current Stock Report');?></span>
                                    </a>
@@ -831,6 +831,11 @@
                                            <i class="fa fa-money"></i><span><?= lang('Customer Credit_Cash');?></span>
                                        </a>
                                 </li>
+                                <li id="reports_expiry_alerts" class="hide">
+                                        <a href="<?= admin_url('reports/expiry_alerts') ?>">
+                                            <i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('product_expiry_alerts'); ?></span>
+                                        </a>
+                                    </li>
                             </ul>
                         </li>
 

@@ -151,9 +151,9 @@
                             } ?>
                         <div class="col-md-4">
                                 <div class="form-group">
-                                    <?= lang("Food point", "Food_point"); ?>
+                                    <?= lang("Reason", "Food_point"); ?>
                                     <?php
-                                        $opt = array('spoiled_food' => lang('spoiled_food') , 'adjustment_food' =>'adjustment_food');
+                                        $opt = array('spoiled_food' => lang('broken_items') , 'adjustment_food' =>'adjustment_items');
                                         echo form_dropdown('spoiled',$opt,set_value($opt),'class="form-control input-tip select" id="spoiled"  required="required" style="width:100%;');
                                     ?>
                                 </div>
