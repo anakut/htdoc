@@ -174,21 +174,21 @@
                         <?php if ($Owner || $Admin) { ?>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <?= lang("col0", "todate"); ?>
+                                    <?= lang("date", "todate"); ?>
                                     <?php echo form_input('date', (isset($_POST['date']) ? $_POST['date'] : ""), 'class="form-control input-tip datetime" id="todate" required="required"'); ?>
                                 </div>
                             </div>
                         <?php } ?>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <?= lang("col1", "ref"); ?>
+                                <?= lang("reference_no", "ref"); ?>
                                 <?php echo form_input('reference_no', (isset($_POST['reference_no']) ? $_POST['reference_no'] : $rnumber), 'class="form-control input-tip" id="ref"'); ?>
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <?= lang("col2", "to_warehouse"); ?>
+                                <?= lang("to_warehouse", "to_warehouse"); ?>
                                 <?php
                                 $wh[''] = '';
                                 foreach ($warehouses as $warehouse) {
@@ -201,7 +201,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <?= lang("col3", "tostatus"); ?>
+                                <?= lang("status", "tostatus"); ?>
                                 <?php
                                 $post = array('completed' => lang('completed'), 'pending' => lang('pending'), 'sent' => lang('sent'));
                                 echo form_dropdown('status', $post, (isset($_POST['status']) ? $_POST['status'] : ''), 'id="tostatus" class="form-control input-tip select" data-placeholder="' . $this->lang->line("select") . ' ' . $this->lang->line("status") . '" required="required" style="width:100%;" ');
@@ -211,7 +211,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group" style="margin-bottom:5px;">
-                                <?= lang("col4", "toshipping"); ?>
+                                <?= lang("shipping", "toshipping"); ?>
                                 <?php echo form_input('shipping', '', 'class="form-control input-tip" id="toshipping"'); ?>
                             </div>
                         </div>

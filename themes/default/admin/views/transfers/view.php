@@ -46,7 +46,7 @@
                 <table class="table table-bordered table-hover table-striped order-table">
                     <thead>
                     <tr>
-                        <th style="text-align:center; vertical-align:middle;"><?= lang("col1-test1"); ?></th>
+                        <th style="text-align:center; vertical-align:middle;"><?= lang("no"); ?></th>
                         <th style="vertical-align:middle;"><?= lang("description"); ?></th>
                         <th style="text-align:center; vertical-align:middle;"><?= lang("quantity"); ?></th>
                         <th style="text-align:center; vertical-align:middle;"><?= lang("unit_cost"); ?></th>

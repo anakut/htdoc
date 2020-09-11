@@ -29,26 +29,21 @@
                     gtotal += parseFloat(aaData[aiDisplay[i]][7]);
                 }
                 var nCells = nRow.getElementsByTagName('th');
-                nCells[6].innerHTML = currencyFormat(formatMoney(row_total));
-                nCells[7].innerHTML = currencyFormat(formatMoney(tax));
-                nCells[8].innerHTML = currencyFormat(formatMoney(gtotal));
+                nCells[5].innerHTML = currencyFormat(formatMoney(row_total));
+                nCells[6].innerHTML = currencyFormat(formatMoney(tax));
+                nCells[7].innerHTML = currencyFormat(formatMoney(gtotal));
             }
         }).fnSetFilteringDelay().dtFilter([
             {column_number: 1, filter_default_label: "[<?=lang('date');?> (yyyy-mm-dd)]", filter_type: "text", data: []},
-            {column_number: 2, filter_default_label: "[<?=lang('col1');?>]", filter_type: "text", data: []},
+            {column_number: 2, filter_default_label: "[<?=lang('ref_no');?>]", filter_type: "text", data: []},
             {
                 column_number: 3,
-                filter_default_label: "[<?=lang("col2");?>]",
+                filter_default_label: "[<?=lang("warehouse").' ('.lang('from').')';?>]",
                 filter_type: "text", data: []
             },
             {
                 column_number: 4,
-                filter_default_label: "[<?=lang("col3");?>]",
-                filter_type: "text", data: []
-            },
-            {
-                column_number: 5,
-                filter_default_label: "[<?=lang("col4");?>]",
+                filter_default_label: "[<?=lang("warehouse").' ('.lang('to').')';?>]",
                 filter_type: "text", data: []
             },
             {column_number: 8, filter_default_label: "[<?=lang('status');?>]", filter_type: "text", data: []},
@@ -60,7 +55,7 @@
 } ?>
 <div class="box">
     <div class="box-header">
-        <h2 class="red"><i class="fa fa-bell-o"></i><?= lang('transfers'); ?></h2>
+        <h2 class="blue"><i class="fa-fw fa fa-star-o"></i><?= lang('transfers'); ?></h2>
 
         <div class="box-icon">
             <ul class="btn-tasks">
@@ -111,20 +106,6 @@
                             <th style="min-width:30px; width: 30px; text-align: center;">
                                 <input class="checkbox checkft" type="checkbox" name="check"/>
                             </th>
-
-                            <th><i class="fa fa-calendar-o"></i>  <?= lang("col0"); ?></th>
-                            <th><i class="fa fa-database"></i>  <?= lang("col1"); ?></th>
-                            <th><i class="fa fa-inbox"></i>  <?= lang("col2"); ?></th>
-                            <th><?= lang("col3"); ?></th>
-                            <th><?= lang("col4"); ?></th>
-                            <th><?= lang("col41"); ?></th>
-                            <th><?= lang("col5"); ?></th>
-                            <th><?= lang("col6"); ?></th>
-                            <th><?= lang("col7"); ?></th>
-                            <th style="min-width:30px; width: 30px; text-align: center;"><i class="fa fa-chain"></i></th>
-                            <th style="width:100px;"><?= lang("actions"); ?></th>
-
-                            <!--
                             <th><?= lang("date"); ?></th>
                             <th><?= lang("ref_no"); ?></th>
                             <th><?= lang("warehouse") . ' (' . lang('from') . ')'; ?></th>
@@ -135,7 +116,6 @@
                             <th><?= lang("status"); ?></th>
                             <th style="min-width:30px; width: 30px; text-align: center;"><i class="fa fa-chain"></i></th>
                             <th style="width:100px;"><?= lang("actions"); ?></th>
-                            -->
                         </tr>
                         </thead>
                         <tbody>
