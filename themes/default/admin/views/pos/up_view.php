@@ -235,7 +235,7 @@ if ($modal) {
                     <th class="" colspan="6" style="white-space: nowrap !important;border-left: 1px solid black !important;border-top: 1px solid black !important; border-bottom: 1px solid black !important; font-size: 14px;font-family: Khmer OS bold;"><?= lang("សរុប / Balance");?>
                     </th>
                   
-                    <th colspan="1" class="text-right" style="white-space: nowrap !important;border-top: 1px solid black !important; border-bottom: 1px solid black !important;  font-size: 14px;">R <?=number_format((($inv->total)*($rate->rate)),2); ?>
+                    <th colspan="1" class="text-right" style="white-space: nowrap !important;border-top: 1px solid black !important; border-bottom: 1px solid black !important;  font-size: 14px;">R <?=number_format((($inv->total)*($rate->rate)),0); ?>
                     </th>
                     <th colspan="2" class="text-right" style="white-space: nowrap !important;border-right: 1px solid black !important;border-top: 1px solid black !important; border-bottom: 1px solid black !important;font-size: 14px;">$ <?= number_format(($inv->total + $inv->product_tax),2); ?>
                 </tr>
@@ -245,7 +245,7 @@ if ($modal) {
                   <th class="" colspan="6" style="white-space: nowrap !important;border-top: 1px solid black !important; border-bottom: 1px dotted black !important;font-size: 14px;font-family: Khmer OS bold;"><?= lang("ប្រាក់ទទួល");?>
                   </th>
                 
-                  <th colspan="1" class="notbold" style="white-space: nowrap !important; font-size: 14px;">R <?=number_format(($paid_amount*($rate->rate)),2) ; ?>
+                  <th colspan="1" class="notbold" style="white-space: nowrap !important; font-size: 14px;">R <?=number_format(($paid_amount*($rate->rate)),0) ; ?>
                   </th>
                   <th colspan="2" class="notbold" style="white-space: nowrap !important; font-size: 14px;">$ <?= $paid_amount ;?>
               </tr>
@@ -255,7 +255,7 @@ if ($modal) {
                   <th class="" colspan="6" style="white-space: nowrap !important; border-top: 1px dotted black !important;border-bottom: 1px dotted black !important;font-size: 14px;font-family: Khmer OS bold;"><?= lang("ប្រាក់អាប់");?>
                   </th>
                 
-                  <th colspan="1" class="notbold" style="white-space: nowrap !important;border-top: 1px dotted black !important; border-bottom: 1px dotted black !important; font-size: 14px;">R <?= number_format(($p_balance_r*($rate->rate)),2)?>
+                  <th colspan="1" class="notbold" style="white-space: nowrap !important;border-top: 1px dotted black !important; border-bottom: 1px dotted black !important; font-size: 14px;">R <?= number_format(($p_balance_r*($rate->rate)),0)?>
                   </th>
                   <th colspan="2" class="notbold" style="white-space: nowrap !important;border-top: 1px dotted black !important; border-bottom: 1px dotted black !important; font-size: 14px;">$ <?= number_format($p_balance_r,2) ;?>
               </tr>
@@ -264,7 +264,7 @@ if ($modal) {
                 <th class="" colspan="6" style="white-space: nowrap !important; border-top: 1px dotted black !important;border-bottom: 1px solid black !important;font-size: 14px;"><?= lang("Discount");?>
                 </th>
               
-                <th colspan="1" class="notbold" style="white-space: nowrap !important;border-top: 1px dotted black !important; border-bottom: 1px dotted black !important; font-size: 14px;">R <?=number_format(($inv->order_discount)*($rate->rate),2)?>
+                <th colspan="1" class="notbold" style="white-space: nowrap !important;border-top: 1px dotted black !important; border-bottom: 1px dotted black !important; font-size: 14px;">R <?=number_format(($inv->order_discount)*($rate->rate),0)?>
                 </th>
                 <th colspan="2" class="notbold" style="white-space: nowrap !important;border-top: 1px dotted black !important; border-bottom: 1px dotted black !important; font-size: 14px;">$ <?= number_format(($inv->order_discount),2) ;?>
             </tr>

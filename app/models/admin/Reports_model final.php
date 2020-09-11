@@ -175,10 +175,7 @@ class Reports_model extends CI_Model
         if($category != '') {
             $this->db->where('ca.name', $category);
         }
-        if($warehouse == '') {
-            $this->db->where('wp.warehouse_id', 1);
-        }
-        else if($warehouse != ''){
+        if($warehouse != '') {
             $this->db->where('wp.warehouse_id', $warehouse);
         }
         // $this->db->where('pr.used_stock', 1);
@@ -196,7 +193,7 @@ class Reports_model extends CI_Model
         // return $this->db->query($sql)->result();
     }
     // ====================================end add model==========================
- function getwarehouseid($warehouse){
+    function getwarehouseid($warehouse){
         return $this->db->query("SELECT id FROM sma_warehouses Where name='$warehouse' ")->result();
     }
     public function getSalesTotals($customer_id)
