@@ -32,6 +32,9 @@ if (isset($_GET['last_date']))
                 echo form_dropdown('category', $cat, (isset($_GET['category']) ? $_GET['category'] : ''), 'class="form-control select" id="category"')
                 ?>
               </div>
+
+              
+
               <div class="form-group hide">
                 <label for="email">ចាប់ពីថ្ងៃ ទី </label>
                 <div class="input-group date input-append" id="fromdatetime" data-date-format="yyyy-mm-dd hh:ii">

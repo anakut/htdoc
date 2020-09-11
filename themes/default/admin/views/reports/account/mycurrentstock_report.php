@@ -32,6 +32,16 @@ if (isset($_GET['last_date']))
                 echo form_dropdown('category', $cat, (isset($_GET['category']) ? $_GET['category'] : ''), 'class="form-control select" id="category"')
                 ?>
               </div>
+              <div class="form-group">
+                <label for="email">ឃ្លាំង</label>
+                <?php $ware[''] = "";
+                $ware[''] = 'Select Warehouse';
+                foreach ($warehouses as $warehouse) {
+                  $ware[$warehouse->name] = $warehouse->name;
+                }
+                echo form_dropdown('warehouse', $ware, (isset($_GET['warehouse']) ? $_GET['warehouse'] : ''), 'class="form-control select" id="warehouse"')
+                ?>
+              </div>
               <div class="form-group ">
                 <label for="email">ចាប់ពីថ្ងៃ ទី </label>
                 <div class="input-group date input-append" id="fromdatetime" data-date-format="yyyy-mm-dd hh:ii">

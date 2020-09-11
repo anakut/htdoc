@@ -1222,15 +1222,24 @@ class Reports extends MY_Controller
         // var_dump($this->data['pay_inv_re_det']);die();
         $this->load->view($this->theme . 'reports/account/print_payment_invoic_detail',$this->data);
     }
+
+   
+
+
     function mycurrentstock_report() {
         $this->load->model('Reports_model');
-
+        $warehouse_id_='';
         $category = $this->input->get('category');
-
-        $this->data['getrp'] = $this->Reports_model->cs_customrp($category);
+        $warehouse = $this->input->get('warehouse');
+        $getwarehouse= $this->Reports_model->getwarehouseid($warehouse); 
+        foreach ($getwarehouse as $eachwarehouse)
+        {
+            $warehouse_id_= $eachwarehouse->id;
+        }
+        $this->data['getrp'] = $this->Reports_model->cs_customrp($category,$warehouse_id_ );
         $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
         $this->data['categories'] = $this->Reports_model->getAllCategories();
-
+        $this->data['warehouses'] = $this->Reports_model->get_warehouse();
         $bc = array(
             array('link' => base_url(), 'page' => lang('home')), 
             array('link' => site_url('reports'), 'page' => lang('reports')), 

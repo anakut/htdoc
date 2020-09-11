@@ -165,7 +165,7 @@ class Reports_model extends CI_Model
         }
         // return FALSE;
     }
-    function cs_customrp($category='',$warehouse=''){
+    function cs_customrp($category=''){
         $this->db->select('wp.quantity as quantity, pr.code as product_code, pr.name as product_name, pr.cost as product_cost, pr.price as product_price, pr.alert_quantity as alert, ca.name as category_name');
         $this->db->from('warehouses_products wp');  
         $this->db->join('products pr', 'wp.product_id=pr.id');
@@ -175,11 +175,8 @@ class Reports_model extends CI_Model
         if($category != '') {
             $this->db->where('ca.name', $category);
         }
-        if($warehouse != '') {
-            $this->db->where('wp.warehouse_id', $warehouse);
-        }
         // $this->db->where('pr.used_stock', 1);
-        
+
         $this->db->group_by('wp.product_id');
         $query = $this->db->get();
         return $query->result();
@@ -193,9 +190,7 @@ class Reports_model extends CI_Model
         // return $this->db->query($sql)->result();
     }
     // ====================================end add model==========================
-    function getwarehouseid($warehouse){
-        return $this->db->query("SELECT id FROM sma_warehouses Where name='$warehouse' ")->result();
-    }
+
     public function getSalesTotals($customer_id)
     {
 
