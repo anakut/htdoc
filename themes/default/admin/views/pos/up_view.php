@@ -446,7 +446,7 @@ if ($modal) {
                 <?= $this->sma->decode_html($biller->invoice_footer); ?>
             </div><hr style="border: 2px solid black !important;">
             <p style="text-align: center;font-size: 12px !important;margin-top:-15px;font-family: Khmer OS ;">*** រាល់ទំនិញដែលទិញហើយមិនអាចប្ដូរយកប្រាក់វិញបានទេ ***</p>
-            <p style="text-align: center; font-weight: 200;">*** Lucky 7 & Cafe ***</p>
+            <p style="text-align: center; font-weight: 200;">***  ***</p>
         </div>
         <?php $this->sma->qrcode('link', urlencode(site_url('pos/view/' . $inv->id)), 2); ?>
         <!-- <div class="text-center"><img
