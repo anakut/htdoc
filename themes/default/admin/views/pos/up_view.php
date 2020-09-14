@@ -218,7 +218,7 @@ if ($modal) {
                          
                         }
                         if ($row->discount != 2) { 
-                            echo '<td class="text-center";>$' . number_format(($row->discount)* $row->quantity,0). '</td> ';
+                            echo '<td class="text-center";>$' . number_format(($row->discount)* $row->quantity,2). '</td> ';
                         }else{
                            echo '<td text-align:center;>0%</td>';
                        }
