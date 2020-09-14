@@ -192,9 +192,11 @@ if ($modal) {
                 $r = 1;
                 $tax_summary = array();
                 $qty=0;
+                $dis=0;
                 foreach ($rows as $row) {
                     // var_dump($row);die();
                     $qty+=$row->quantity;
+                    $dis+=($row->discount)* $row->quantity;
                     if (isset($tax_summary[$row->tax_code])) {
                         $tax_summary[$row->tax_code]['items'] += $row->quantity;
                         $tax_summary[$row->tax_code]['tax'] += $row->item_tax;
@@ -209,14 +211,14 @@ if ($modal) {
                     }
                     echo '<tr>';
                         if ($row->comment !="") {
-                           echo '<td colspan="5" style=""float:left;><span style="float:left; font-size:14px;font-family: Khmer OS ;">  '. product_name($row->product_name) .'&nbsp;'.'('.$row->comment.')'.'</span>' . ($row->variant ? ' (' . $row->variant . ')' : '').'</td>';
+                           echo '<td colspan="5" style=""><span style="float:left; font-size:14px;font-family: Khmer OS ;text-align: left;">  '. product_name($row->product_name) .'&nbsp;'.'('.$row->comment.')'.'</span>' . ($row->variant ? ' (' . $row->variant . ')' : '').'</td>';
                            
                         }else{
-                            echo '<td colspan="5" style="border: 1px  black !important;"float:left;><span style="float:left;font-family: Khmer OS ; font-size:14px;white-space:nowrap;">  '. product_name($row->product_name).($row->variant ? ' (' . $row->variant .')' : '').'</td>';
+                            echo '<td colspan="5" style="border: 1px  black !important;"><span style="float:left;font-family: Khmer OS ; font-size:14px;text-align: left;">  '. product_name($row->product_name).($row->variant ? ' (' . $row->variant .')' : '').'</td>';
                          
                         }
                         if ($row->discount != 2) { 
-                            echo '<td class="text-center";>$' . $row->discount. '</td> ';
+                            echo '<td class="text-center";>$' . number_format(($row->discount)* $row->quantity,0). '</td> ';
                         }else{
                            echo '<td text-align:center;>0%</td>';
                        }
@@ -280,9 +282,9 @@ if ($modal) {
                 <th class="" colspan="5" style="white-space: nowrap !important; border-top: 1px dotted black !important;border-bottom: 1px solid black !important;font-size: 14px;"><?= lang("Discount");?>
                 </th>
               
-                <th colspan="2" class="notbold" style="white-space: nowrap !important;border-top: 1px dotted black !important; border-bottom: 1px solid black !important; font-size: 14px;">R <?=number_format(($inv->order_discount)*($rate->rate),0)?>
+                <th colspan="2" class="notbold" style="white-space: nowrap !important;border-top: 1px dotted black !important; border-bottom: 1px solid black !important; font-size: 14px;">R <?=number_format(($inv->order_discount+(($row->discount)* $row->quantity))*($rate->rate),0)?>
                 </th>
-                <th colspan="2" class="notbold" style="white-space: nowrap !important;border-top: 1px dotted black !important; border-bottom: 1px dotted black !important; font-size: 14px;">$ <?= number_format(($inv->order_discount),2) ;?>
+                <th colspan="2" class="notbold" style="white-space: nowrap !important;border-top: 1px dotted black !important; border-bottom: 1px dotted black !important; font-size: 14px;">$ <?= number_format($dis+$inv->order_discount,2) ;?>
             </tr>
                 <?php
                 
