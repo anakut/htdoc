@@ -109,7 +109,7 @@ if ($modal) {
 
             <h3 class="hide" style="text-transform:uppercase;font-family:'khmer os muol light';">
                 <?= $biller->company != '-' ? $biller->company : $biller->name; ?></h3>
-            <p class="adr" style="text-aling:center;font-family:'khmer os content'"></p><!-- <?php echo $biller->address?> -->
+            <p class="adr" style="text-aling:center;font-family:'khmer os content'"></p><?php?>
             <!-- <p class="pho" style="text-align:center"><?php echo $biller->phone?></p> -->
             <!-- <p class="pull-right">Customer name:</p> -->
             <?php
@@ -282,7 +282,7 @@ if ($modal) {
                 <th class="" colspan="5" style="white-space: nowrap !important; border-top: 1px dotted black !important;border-bottom: 1px solid black !important;font-size: 14px;"><?= lang("Discount");?>
                 </th>
               
-                <th colspan="2" class="notbold" style="white-space: nowrap !important;border-top: 1px dotted black !important; border-bottom: 1px solid black !important; font-size: 14px;">R <?=number_format(($inv->order_discount+(($row->discount)* $row->quantity))*($rate->rate),0)?>
+                <th colspan="2" class="notbold" style="white-space: nowrap !important;border-top: 1px dotted black !important; border-bottom: 1px solid black !important; font-size: 14px;">R <?=number_format(($inv->order_discount+$dis)*($rate->rate),0)?>
                 </th>
                 <th colspan="2" class="notbold" style="white-space: nowrap !important;border-top: 1px dotted black !important; border-bottom: 1px dotted black !important; font-size: 14px;">$ <?= number_format($dis+$inv->order_discount,2) ;?>
             </tr>
@@ -380,12 +380,7 @@ if ($modal) {
                     </tr>  -->
                 <?php }
                 if ($inv->paid < $inv->grand_total) { ?>
-                    <tr>
-                        <th  style="font-size: 9px;"><?= lang("paid_amount"); ?></th>
-                        <th class="text-center" style="font-size: 9px;"><?= $this->sma->formatMoney($inv->paid); ?></th>
-                        <th  style="font-size: 9px;"><?= lang("due_amount"); ?></th>
-                        <th class="text-right" style="font-size: 9px;"><?= number_format(($inv->grand_total - $inv->paid),0); ?></th>
-                    </tr>
+                   
                 <?php  } ?>
                 </tfoot>
             </table>
