@@ -786,7 +786,7 @@
                                        <i class="fa fa-circle-o-notch"></i><span><?= lang('warehouse_chat');?></span>
                                    </a>
                                </li>
-                               <li id="profit_loss" class="">
+                               <li id="profit_loss" class="hide">
                                    <a href="<?php echo base_url('admin/reports/profit_loss_report');?>">
                                        <i class="fa fa-money"></i><span><?= lang('profit_and_loss');?></span>
                                    </a>
