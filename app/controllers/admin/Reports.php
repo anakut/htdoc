@@ -84,8 +84,8 @@ class Reports extends MY_Controller
     function getExpiryAlerts($warehouse_id = NULL)
     {
         $this->sma->checkPermissions('expiry_alerts', TRUE);
-        $date = date('Y-m-d', strtotime('+1 months'));
-
+        $date = date('Y-m-d', strtotime('+4 months'));
+        $date1 =  date('Y-m-d', strtotime('-1 days'));
         if (!$this->Owner && !$warehouse_id) {
             $user = $this->site->getUser();
             $warehouse_id = $user->warehouse_id;
@@ -100,7 +100,7 @@ class Reports extends MY_Controller
                 ->join('warehouses', 'warehouses.id=purchase_items.warehouse_id', 'left')
                 ->where('warehouse_id', $warehouse_id)
                 ->where('expiry !=', NULL)->where('expiry !=', '0000-00-00')
-                ->where('expiry <', $date);
+                ->where('expiry <', $date) ->where('expiry >', $date1);
         } else {
             $this->datatables
                 ->select("image, product_code, product_name, quantity_balance, warehouses.name, expiry")
@@ -108,7 +108,7 @@ class Reports extends MY_Controller
                 ->join('products', 'products.id=purchase_items.product_id', 'left')
                 ->join('warehouses', 'warehouses.id=purchase_items.warehouse_id', 'left')
                 ->where('expiry !=', NULL)->where('expiry !=', '0000-00-00')
-                ->where('expiry <', $date);
+                ->where('expiry <', $date)->where('expiry >', $date1);
         }
         echo $this->datatables->generate();
     }

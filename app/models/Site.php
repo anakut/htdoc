@@ -36,7 +36,7 @@ class Site extends CI_Model
     }
 
     public function get_expiring_qty_alerts() {
-        $date = date('Y-m-d', strtotime('+3 months'));
+        $date = date('Y-m-d', strtotime('+4 months'));
         $this->db->select('SUM(quantity_balance) as alert_num')
         ->where('expiry !=', NULL)->where('expiry !=', '0000-00-00')
         ->where('expiry <', $date);
